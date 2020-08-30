@@ -1,6 +1,6 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import route from './routes';
+import route from './routes/index';
 import dotenv from 'dotenv';
 import { handleError } from './middlewares/error';
 dotenv.config();
