@@ -1,5 +1,5 @@
 import express from 'express';
-import { TrackController } from '../controllers';
+import { TrackController } from '../controllers/index';
 const router = express.Router();
 
 router.get('/',TrackController.getAllTracks);

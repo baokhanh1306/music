@@ -1,4 +1,4 @@
-import { Track } from '../models';
+import { Track } from '../models/index';
 import catchAsync from '../middlewares/catchAsync';
 
 const getAllTracks = catchAsync(async (req, res, next) => {
