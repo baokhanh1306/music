@@ -24,5 +24,5 @@ app.use('/api', route);
 app.use((err, req, res, next) => {
   handleError(err, res);
 });
-const port = process.env.port || 5002;
+const port = process.env.PORT || 5002;
 app.listen(port, () => console.log(`App listen on port ${port}`));
