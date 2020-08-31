@@ -1,5 +1,5 @@
 import * as types from './types';
-import axios from 'axios';
+import axios from '../../../utils/api';
 import jwtDecode from 'jwt-decode';
 import history from '../../../utils/history';
 
@@ -41,7 +41,7 @@ export const removeMsg = () => {
 	return {
 		type: types.LOGOUT,
 	};
-}
+};
 
 export const setUser = (token) => {
 	const { email } = jwtDecode(token);

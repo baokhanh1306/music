@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import route from './routes/index';
 import dotenv from 'dotenv';
+import cors from 'cors';
 import { handleError } from './middlewares/error';
 dotenv.config();
 
@@ -15,6 +16,7 @@ mongoose
   .catch((error) => console.log(error));
 
 const app = express();
+app.use(cors());
 app.use(express.static(__dirname + '/public'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

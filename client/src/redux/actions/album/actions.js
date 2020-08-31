@@ -1,5 +1,5 @@
 import * as types from './types';
-import axios from 'axios';
+import axios from '../../../utils/api';
 
 export const fetchAlbum = (id) => async (dispatch) => {
 	dispatch({ type: types.LOADING });

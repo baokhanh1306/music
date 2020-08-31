@@ -1,33 +1,32 @@
 import * as types from './types';
-import axios from 'axios';
+import axios from '../../../utils/api';
 
-
-export const fetchPlaylist = (id) => async(dispatch) => {
-    dispatch({ type: types.PLAYLIST_LOADING });
-    const res = await axios.get(`/playlists/${id}`);
-    await dispatch({ type: types.GET_PLAYLIST, payload: res.data });
-    dispatch({ type: types.PLAYLIST_FINISHED });
-}
+export const fetchPlaylist = (id) => async (dispatch) => {
+	dispatch({ type: types.PLAYLIST_LOADING });
+	const res = await axios.get(`/playlists/${id}`);
+	await dispatch({ type: types.GET_PLAYLIST, payload: res.data });
+	dispatch({ type: types.PLAYLIST_FINISHED });
+};
 
 export const fetchPlaylists = (page) => async (dispatch) => {
-    dispatch({ type: types.PLAYLIST_LOADING });
-    const res = await axios.get(`/playlists/users/user`, {
-        params: {
-            page
-        },
-        headers: {
-            Authorization: 'Bearer ' + localStorage.getItem('token')
-        }
-    });
-    await dispatch({
-        type: types.GET_PLAYLISTS,
-        payload: res.data
-    });
-    dispatch({
-        type: types.PLAYLIST_FINISHED
-    });
+	dispatch({ type: types.PLAYLIST_LOADING });
+	const res = await axios.get(`/playlists/users/user`, {
+		params: {
+			page,
+		},
+		headers: {
+			Authorization: 'Bearer ' + localStorage.getItem('token'),
+		},
+	});
+	await dispatch({
+		type: types.GET_PLAYLISTS,
+		payload: res.data,
+	});
+	dispatch({
+		type: types.PLAYLIST_FINISHED,
+	});
 };
 
 export const removePlaylist = () => ({
-    type: types.PLAYLIST_LOADING
+	type: types.PLAYLIST_LOADING,
 });
