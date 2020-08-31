@@ -1,4 +1,4 @@
-import axios from '../../../utils/api';
+import axios from 'axios';
 
 export default axios.create({
   baseURL: 'https://api.deezer.com',
